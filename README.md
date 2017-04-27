@@ -17,6 +17,8 @@
 
 This private repository holds data structures that resemble the ones offered at the PSU Proficiency Demo.
 
+**Important:** this code is only compatible with x86_64 architecture. If it doesn't run on your machine, clone it onto the PCC server.
+
 To begin, clone this repository to your local machine with `git clone https://github.com/michaelheyman/psu-demo.git`.
 
 Changes to the `master` branch are disabled, therefore you are encouraged to create and work on your own branch. Keep your branch updated. If your name is John Smith your branch should be `jsmith`.

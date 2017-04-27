@@ -11,7 +11,7 @@
   - [Binary Search Tree](#binary-search-tree)
   - [Circular Linked List](#circular-linked-list)
   - [Doubly Linked List](#doubly-linked-list)
-  - [Linear Linked List](#linear-linked-List)
+  - [Linear Linked List](#linear-linked-list)
 
 ## Introduction
 

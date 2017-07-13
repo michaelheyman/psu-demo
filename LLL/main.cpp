@@ -7,9 +7,8 @@ int main()
     object.display();  //displays the LLL
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    //object.test();
-    //object.displayAll();
-    cout << object.reverseAll() << endl;
+    cout << object.addAfter2(1000) << endl;
+    object.displayAll();
 
     object.display();  //displays the LLL again!
 

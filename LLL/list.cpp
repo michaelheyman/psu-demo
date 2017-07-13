@@ -9,10 +9,8 @@ int list::displayAll(node* head) {
     return displayAllHelper(head, 0);
 }
 int list::displayAllHelper(node* head, int count) {
-    if (!head) {
-        //cout << endl;
+    if (!head)
         return count;
-    }
 
     cout << head->data << " ";
     return displayAllHelper(head->next, ++count);
@@ -37,7 +35,6 @@ int list::displayReverseHelper(node* head, int &count) {
 
     return count;
 }
-
 
 // Write a function to display every node that is divisible by the argument passed in. Return number of nodes displayed.   
 int list::displayDivisible(int toDisplay) {
@@ -121,17 +118,17 @@ int list::addAfter2Helper(node*& head, int toAdd, int added) {
     if (!head)
         return added;
 
-    //cout << head->data << " ";
-
     if (head->data == 2) {
         node * newNode = new node;
         newNode->data = toAdd;
         newNode->next = head->next;
         head->next = newNode;
         added++;
-    }
 
-    //NOTE: if the last element of the list is a 2 it's insering a 2 instead of toAdd
+        if (head == tail) {
+            tail = newNode;
+        }
+    }
 
     return addAfter2Helper(head->next, toAdd, added);
 }
@@ -223,4 +220,49 @@ int list::reverseAll(node*& head, node * curr, node* prev, int &count) {
 
     return reverseAll(head, next, curr, ++count);
     //TODO: the reversed list's last item is incorrect
+}
+
+//Write a function to add a node that contains the data passed into the function at the end of the list for each node that is divisible by the first node's data
+int list::appendIfDivisible(int toAdd) {
+    return appendIfDivisible(head, toAdd);
+}
+int list::appendIfDivisible(node*& head, int toAdd) {
+    node * prev = NULL;
+    return appendIfDivisible(head, head, prev, toAdd);
+}
+int list::appendIfDivisible(node*& head, node * curr, node * prev, int toAdd) {
+    if (!curr)
+        return toAdd;
+
+    if (curr->data % head->data == 0) {
+        //cout << "BANG at " << curr->data << endl;
+        appendIfDivisible(head, curr->next, curr, toAdd); //traverse to end of LL
+
+        //TODO: remove this interative traversal
+        while (curr) {
+            prev = curr;
+            curr = curr->next;
+        }
+
+        node * newNode = new node;
+        newNode->data = toAdd;
+        newNode->next = NULL;
+        
+        prev->next = newNode;
+
+        return toAdd;
+    }
+
+    return appendIfDivisible(head, curr->next, curr, toAdd);
+}
+
+void list::printAddress() {
+    node * curr = head;
+
+    while (curr) {
+        //cout << curr->data << ":\t" << *&curr << endl;
+        cout << curr->data << " ";
+        curr = curr->next;
+    }
+    cout << endl;
 }

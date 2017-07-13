@@ -22,7 +22,6 @@ class list
 
         /* *****************YOUR TURN! ******************************** */
         //Write your function prototype here:
-        void test();
 
         //Write a function to display the list. Return the number of nodes.   
         int displayAll();
@@ -56,11 +55,15 @@ class list
 
         //Write a function to add the data passed in to the function before every instance of a 2 in the list. Return the number of nodes that were added to the list.    
         int addBefore2(int toAdd);
-        int addBefore2(node*& head, int toAdd);
-        int addBefore2Helper(node*& head, int toAdd, int added);
+        int addBefore2(node* head, int toAdd);
+        //int addBefore2Helper(node*& head, int toAdd, int added);
+        int addBefore2Helper(node* head, node* prev, int toAdd, int added);
 
+        //Write a function to add the data of the first node that is divisible by three or five to every following node in the list. Return number of nodes that occur before one is divisible by three or five.  
+        int modifyAfter();
+        int modifyAfter(node* head);
+        int modifyAfter(node * head, bool found, int count, int data);
         /*
-           3  Write a function to add the data of the first node that is divisible by three or five to every following node in the list. Return number of nodes that occur before one is divisible by three or five.  int modifyAfter(node* head)
            3  Write a function to reverse the List. Return number of nodes in the list.   int reverseAll(node*& head)
            3  Write a function to add a node that contains the data passed into the function at the end of the list for each node that is divisible by the first node's data  int appendIfDivisible (node*& head, int toAdd)
            4  Write a function that takes 2 lists and creates a new list where the nth node is the average of the nth items in the two input lists. Return the average of the new list.   float CopySpecialAvg (node*& source1, node*& source2, node*& dest)

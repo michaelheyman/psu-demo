@@ -7,7 +7,9 @@ int main()
     object.display();  //displays the LLL
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    object.test();
+    //object.test();
+    //object.displayAll();
+    object.modifyAfter();
 
     object.display();  //displays the LLL again!
 

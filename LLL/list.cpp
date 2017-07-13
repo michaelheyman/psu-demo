@@ -1,43 +1,16 @@
 #include "list.h"
 
 //Write a function to display the list. Return the number of nodes.   
-
-void list::test() {
-    cout << "\nUser-defined function calls:\n\n";
-
-    cout << "displayAll():" << endl;
-    cout << "This list has " << this->displayAll() << " items.\n\n";
-
-    cout << "displayReverse():" << endl;
-    cout << "\nThis list has " << this->displayReverse() << " items.\n\n";
-
-    cout << "displayDivisible(2):" << endl;
-    cout << "\nThis list has " << this->displayDivisible(2) << " items.\n\n";
-    
-    cout << "displayEveryOther():" << endl;
-    cout << "\nThis list hid " << this->displayEveryOther() << " items.\n\n";
-
-    cout << "addToEnd():" << endl;
-    cout << "This list has a sum of " << this->addToEnd() << " items.\n\n";
-    
-    cout << "addAfter2(300):" << endl;
-    cout << "This function added " << this->addAfter2(300) << " nodes to the list.\n\n";
-
-    cout << "addBefore2(500):" << endl;
-    cout << "This function removed " << this->addBefore2(500) << " nodes to the list.\n\n";
-}
-
 int list::displayAll() {
+    cout << __func__ << endl;
     return displayAll(head);
 }
-
 int list::displayAll(node* head) {
     return displayAllHelper(head, 0);
 }
-
 int list::displayAllHelper(node* head, int count) {
     if (!head) {
-        cout << endl;
+        //cout << endl;
         return count;
     }
 
@@ -47,14 +20,13 @@ int list::displayAllHelper(node* head, int count) {
 
  //Write a function to display the list in reverse order. Return the number of nodes.  
 int list::displayReverse() {
+    cout << __func__ << endl;
     return displayReverse(head);
 }
-
 int list::displayReverse(node* head) {
     int count = 0; // displayReverseHelper required an actual variable to be passed in
     return displayReverseHelper(head, count);
 }
-
 int list::displayReverseHelper(node* head, int &count) {
     if (!head) {
         return count;
@@ -69,13 +41,12 @@ int list::displayReverseHelper(node* head, int &count) {
 
 // Write a function to display every node that is divisible by the argument passed in. Return number of nodes displayed.   
 int list::displayDivisible(int toDisplay) {
+    cout << __func__ << endl;
     return displayDivisible(head, toDisplay);
 }
-
 int list::displayDivisible(node* head, int toDisplay) {
     return displayDivisibleHelper(head, toDisplay, 0);
 }
-
 int list::displayDivisibleHelper(node* head, int toDisplay, int count) {
     if (!head)
         return count;
@@ -90,6 +61,7 @@ int list::displayDivisibleHelper(node* head, int toDisplay, int count) {
 
 //Write a function to display every other Node in the list. Return the number of nodes that are not displayed.
 int list::displayEveryOther() {
+    cout << __func__ << endl;
     return displayEveryOther(head);
 }
 int list::displayEveryOther(node* head) {
@@ -111,6 +83,7 @@ int list::displayEveryOtherHelper(node* head, int &count, int &displayed) {
 
 //Write a function to add the sum of the data from the first two nodes to the end of the list. Return the sum of the list.    
 int list::addToEnd() {
+    cout << __func__ << endl;
     return addToEnd(head);
 }
 int list::addToEnd(node*& head) {
@@ -138,6 +111,7 @@ int list::addToEndHelper(node*& head, int &index, int &sum, int &total) {
 
 //Write a function to add the data passed in to the function after every instance of a 2 in the list. Return the number of nodes that were added to the list. 
 int list::addAfter2(int toAdd) {
+    cout << __func__ << endl;
     return addAfter2(head, toAdd);
 }
 int list::addAfter2(node*& head, int toAdd) {
@@ -147,6 +121,8 @@ int list::addAfter2Helper(node*& head, int toAdd, int added) {
     if (!head)
         return added;
 
+    //cout << head->data << " ";
+
     if (head->data == 2) {
         node * newNode = new node;
         newNode->data = toAdd;
@@ -155,33 +131,70 @@ int list::addAfter2Helper(node*& head, int toAdd, int added) {
         added++;
     }
 
+    //NOTE: if the last element of the list is a 2 it's insering a 2 instead of toAdd
+
     return addAfter2Helper(head->next, toAdd, added);
 }
 
 //Write a function to add the data passed in to the function before every instance of a 2 in the list. Return the number of nodes that were added to the list.    
 int list::addBefore2(int toAdd) {
+    cout << __func__ << endl;
     return addBefore2(head, toAdd);
 }
-int list::addBefore2(node*& head, int toAdd) {
-    return addBefore2Helper(head, toAdd, 0);
+int list::addBefore2(node* head, int toAdd) {
+    node * prev = NULL;
+    return addBefore2Helper(head, prev, toAdd, 0);
 }
-int list::addBefore2Helper(node*& head, int toAdd, int added) {
+int list::addBefore2Helper(node* head, node* prev,  int toAdd, int added) {
     if (!head)
         return added;
 
-    if (head->next) {
-        if (head->next->data == 2) {
-            node * newNode = new node;
-            newNode->data = toAdd;
-            newNode->next = head->next;
-            head->next = newNode;
-            added++;
-            return addBefore2Helper(newNode->next, toAdd, added);
+    cout << head->data << " ";
+
+    if (head->data == 2) {
+        node * newNode = new node;
+        newNode->data = toAdd;
+        newNode->next = head;
+        
+        if (prev != NULL) {
+            prev->next = newNode;
         }
+        else {
+            head = newNode; //TODO: this is not changing the actual head, maybe pass by ptr reference?
+        }
+
+        added++;
+
+        //return addBefore2Helper(head->next, head, toAdd, added);
     }
 
-    return addBefore2Helper(head->next, toAdd, added);
+    return addBefore2Helper(head->next, head, toAdd, added);
+}
 
-    //rework this method, and keep track of previous node to handle the case where
-    //the head is 2
+//Write a function to add the data of the first node that is divisible by three or five to every following node in the list. Return number of nodes that occur before one is divisible by three or five.  
+int list::modifyAfter() {
+    return modifyAfter(head);
+}
+int list::modifyAfter(node* head) {
+    cout << __func__ << endl;
+    int count = 0;
+    int data = 0;
+    return modifyAfter(head, false, count, data);
+}
+int list::modifyAfter(node * head, bool found, int count, int data) {
+    if (!head)
+        return count;
+
+    if (!found && ((head->data % 5 == 0) || (head->data % 3 == 0))) {
+        found = true;
+        data = head->data;
+    }
+    else if (!found) {
+        count++;
+    }
+    else if (found) {
+        head->data += data;
+    }
+    
+    return modifyAfter(head->next, found, count, data);
 }

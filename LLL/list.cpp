@@ -223,46 +223,28 @@ int list::reverseAll(node*& head, node * curr, node* prev, int &count) {
 }
 
 //Write a function to add a node that contains the data passed into the function at the end of the list for each node that is divisible by the first node's data
+//NOTE: this function ignores the data if it equals toAdd
 int list::appendIfDivisible(int toAdd) {
     return appendIfDivisible(head, toAdd);
 }
 int list::appendIfDivisible(node*& head, int toAdd) {
     node * prev = NULL;
-    return appendIfDivisible(head, head, prev, toAdd);
+    return appendIfDivisible(head, head, prev, toAdd, 0);
 }
-int list::appendIfDivisible(node*& head, node * curr, node * prev, int toAdd) {
+int list::appendIfDivisible(node*& head, node * curr, node * prev, int toAdd, int count) {
     if (!curr)
-        return toAdd;
+        return count;
 
-    if (curr->data % head->data == 0) {
-        //cout << "BANG at " << curr->data << endl;
-        appendIfDivisible(head, curr->next, curr, toAdd); //traverse to end of LL
-
-        //TODO: remove this interative traversal
-        while (curr) {
-            prev = curr;
-            curr = curr->next;
-        }
-
+    if (curr->data % head->data == 0 && curr->data != toAdd) {
         node * newNode = new node;
         newNode->data = toAdd;
         newNode->next = NULL;
         
-        prev->next = newNode;
+        tail->next = newNode;
+        tail = newNode;
 
-        return toAdd;
+        count++;
     }
 
-    return appendIfDivisible(head, curr->next, curr, toAdd);
-}
-
-void list::printAddress() {
-    node * curr = head;
-
-    while (curr) {
-        //cout << curr->data << ":\t" << *&curr << endl;
-        cout << curr->data << " ";
-        curr = curr->next;
-    }
-    cout << endl;
+    return appendIfDivisible(head, curr->next, curr, toAdd, count);
 }

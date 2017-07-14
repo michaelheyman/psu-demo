@@ -68,15 +68,13 @@ class list
         int reverseAll(node*& head);
         int reverseAll(node*& head, node * curr, node * prev, int &count);
 
-        //TODO: incomplete
         //Write a function to add a node that contains the data passed into the function at the end of the list for each node that is divisible by the first node's data
         int appendIfDivisible(int toAdd);
         int appendIfDivisible(node*& head, int toAdd);
-        int appendIfDivisible(node*& head, node * curr, node * prev, int toAdd);
-
-        void printAddress();
+        int appendIfDivisible(node*& head, node * curr, node * prev, int toAdd, int count);
 
         //Write a function that takes 2 lists and creates a new list where the nth node is the average of the nth items in the two input lists. Return the average of the new list.   
+        float CopySpecialAvg (node*& source1, node*& source2, node*& dest);
         /*
            3  Write a function that returns the average of the unique items in the list.  float averageSpecial (node* head)
            4  Write a function that reverses every 3 nodes in a list, any remainders at the end of the list should be left as they are. Return the number of swapped nodes    int swap3(node*& head)

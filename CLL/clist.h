@@ -23,8 +23,11 @@ class list
         /* *****************YOUR TURN! ********************* */
         //Write your function prototype here:
 
+        //Write a function to display the list. Return the number of nodes.
+        int displayAll();
+        int displayAll(node* head);
+        int displayAll(node* head, int count);
         /*
-        0   Write a function to display the list. Return the number of nodes.   int displayAll(node* head)
         0   Write a function to display the list in reverse order. Return the number of nodes.  int displayReverse(node* head)
         0   Write a function to display every node that is divisible by the argument passed in. Return number of nodes displayed.   int displayDivisible(node* head, int toDisplay)
         1   Write a function to display every other Node in the list. Return the number of nodes that are not displayed.    int displayEveryOther(node* head)

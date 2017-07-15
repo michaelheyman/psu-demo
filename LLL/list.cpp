@@ -248,3 +248,46 @@ int list::appendIfDivisible(node*& head, node * curr, node * prev, int toAdd, in
 
     return appendIfDivisible(head, curr->next, curr, toAdd, count);
 }
+
+//Write a function that returns the average of the unique items in the list.  
+float list::averageSpecial() {
+    return averageSpecial(head);
+}
+float list::averageSpecial(node* head) {
+    return averageSpecial(head, 0, 0, 0);
+}
+float list::averageSpecial(node* head, float sum, float count, int match) {
+    if (!head)
+        return sum / count;
+    
+    if (isUnique(head, head->next)) {
+        count++;
+        sum += head->data;
+    }
+
+    return averageSpecial(head->next, sum, count, match);
+}
+bool list::isUnique(node *& head, node * curr) {
+    if (curr == head)
+        return true;
+
+    if (!curr)
+        return isUnique(head, this->head);
+
+    if (curr->data == head->data)
+        return false;
+
+    return isUnique(head, curr->next);
+}
+
+//Write a function that takes 2 lists and creates a new list where the nth node is the average of the nth items in the two input lists. Return the average of the new list.   
+float list::copySpecialAvg(node*& source1, node*& source2, node*& dest) {
+    if (!source1 || !source2)
+        return 0;
+
+    dest = new node;
+    dest->data = (source1->data + source2->data) / 2.0;
+    dest->next = NULL;
+
+    return copySpecialAvg(source1->next, source2->next, dest->next);
+}

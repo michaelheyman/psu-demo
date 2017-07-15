@@ -281,13 +281,20 @@ bool list::isUnique(node *& head, node * curr) {
 }
 
 //Write a function that takes 2 lists and creates a new list where the nth node is the average of the nth items in the two input lists. Return the average of the new list.   
+float list::copySpecialAvg(list*& source1, list*& source2, list*& dest) {
+    return copySpecialAvg(source1->head, source2->head, dest->head);
+}
 float list::copySpecialAvg(node*& source1, node*& source2, node*& dest) {
+    return copySpecialAvg(source1, source2, dest, 0, 0);
+}
+float list::copySpecialAvg(node*& source1, node*& source2, node*& dest, int sum, int count) {
     if (!source1 || !source2)
-        return 0;
+        return sum / count;
 
     dest = new node;
-    dest->data = (source1->data + source2->data) / 2.0;
+    dest->data = (source1->data + source2->data) / 2;
     dest->next = NULL;
+    sum += dest->data;
 
-    return copySpecialAvg(source1->next, source2->next, dest->next);
+    return copySpecialAvg(source1->next, source2->next, dest->next, sum, ++count);
 }

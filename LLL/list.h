@@ -76,7 +76,7 @@ class list
         //Write a function that returns the average of the unique items in the list.  
         float averageSpecial();
         float averageSpecial(node* head);
-        float averageSpecial(node* head, float sum, float count, int match);
+        float averageSpecial(node* head, float sum, float count);
         bool isUnique(node *& head, node * curr);
 
         //Write a function that takes 2 lists and creates a new list where the nth node is the average of the nth items in the two input lists. Return the average of the new list.   
@@ -84,9 +84,9 @@ class list
         float copySpecialAvg(node*& source1, node*& source2, node*& dest);
         float copySpecialAvg(node*& source1, node*& source2, node*& dest, int sum, int count);
 
-        /*
-        4  Write a function that reverses every 3 nodes in a list, any remainders at the end of the list should be left as they are. Return the number of swapped nodes    int swap3(node*& head)
-         */
+        //Write a function that reverses every 3 nodes in a list, any remainders at the end of the list should be left as they are. Return the number of swapped nodes
+        int swap3(node*& head);
+        int swap3(node*& first, node*& second, node*& third, int count);
 
     private:		//notice there is both a head and a tail!
         node * head;

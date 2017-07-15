@@ -254,9 +254,9 @@ float list::averageSpecial() {
     return averageSpecial(head);
 }
 float list::averageSpecial(node* head) {
-    return averageSpecial(head, 0, 0, 0);
+    return averageSpecial(head, 0, 0);
 }
-float list::averageSpecial(node* head, float sum, float count, int match) {
+float list::averageSpecial(node* head, float sum, float count) {
     if (!head)
         return sum / count;
     
@@ -265,7 +265,7 @@ float list::averageSpecial(node* head, float sum, float count, int match) {
         sum += head->data;
     }
 
-    return averageSpecial(head->next, sum, count, match);
+    return averageSpecial(head->next, sum, count);
 }
 bool list::isUnique(node *& head, node * curr) {
     if (curr == head)
@@ -297,4 +297,28 @@ float list::copySpecialAvg(node*& source1, node*& source2, node*& dest, int sum,
     sum += dest->data;
 
     return copySpecialAvg(source1->next, source2->next, dest->next, sum, ++count);
+}
+
+//Write a function that reverses every 3 nodes in a list, any remainders at the end of the list should be left as they are. Return the number of swapped nodes
+//TODO: not finished
+int list::swap3(node*& head) {
+    if (!head->next)
+        return 0;
+
+    node * third = NULL;
+
+    return swap3(head, head->next, third, 0);
+}
+int list::swap3(node*& first, node*& second, node*& third, int count) {
+    if (!second)
+        return count;
+    
+    if (second->next)
+        return swap3(first, second, second->next, count);
+
+    first->next = third->next;
+    second->next = first;
+    third->next = second;
+
+    return 0;
 }

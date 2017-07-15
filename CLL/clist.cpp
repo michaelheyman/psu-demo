@@ -23,3 +23,28 @@ int list::displayAll(node* head, int count) {
 
     return displayAll(head->next, ++count);
 }
+
+//Write a function to display the list in reverse order. Return the number of nodes.
+int list::displayReverse() {
+    cout << __func__ << endl;
+    return displayReverse(rear->next);
+}
+int list::displayReverse(node* head) {
+    int count = 0;
+    return displayReverse(head, count);
+}
+int list::displayReverse(node* head, int &count) {
+    if (!head)
+        return 0;
+
+    if (head == rear) {
+        cout << head->data << " ";
+        return ++count;
+    }
+
+    displayReverse(head->next, ++count);
+
+    cout << head->data << " ";
+
+    return count;
+}

@@ -8,7 +8,7 @@ int main()
     object.display();	//displays the list
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    cout << "total: " << object.reverseAll() << endl;
+    cout << "return: " << object.appendIfDivisible(1033) << endl;
 
     object.display(); //resulting list after your function call!
     

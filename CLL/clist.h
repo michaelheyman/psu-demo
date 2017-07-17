@@ -53,8 +53,12 @@ class list
         int addAfter2(node*& head, int toAdd);
         int addAfter2(node*& head, node * prev, int toAdd, int added);
 
+        //Write a function to add the data passed in to the function before every instance of a 2 in the list. Return the number of nodes that were added to the list.
+        int addBefore2(int toAdd);
+        int addBefore2(node*& head, int toAdd);
+        int addBefore2(node*& head, node* prev, int toAdd, int added);
+
         /*
-        1   Write a function to add the data passed in to the function before every instance of a 2 in the list. Return the number of nodes that were added to the list.    int addBefore2(node*& head, int toAdd)
         3   Write a function to add the data of the first node that is divisible by three or five to every following node in the list. Return number of nodes that occur before one is divisible by three or five.  int modifyAfter(node* head)
         3   Write a function to reverse the List. Return number of nodes in the list.   int reverseAll(node*& head)
         3   Write a function to add a node that contains the data passed into the function at the end of the list for each node that is divisible by the first node's data  int appendIfDivisible (node*& head, int toAdd)

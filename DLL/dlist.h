@@ -29,8 +29,12 @@ class list
         int displayAll(node* head);
         int displayAll(node* head, int count);
 
+        //Write a function to display the list in reverse order. Return the number of nodes.
+        int displayReverse();
+        int displayReverse(node* head);
+        int displayReverse(node* head, int count);
+
         /*
-        0   Write a function to display the list in reverse order. Return the number of nodes.  int displayReverse(node* head)
         0   Write a function to display every node that is divisible by the argument passed in. Return number of nodes displayed.   int displayDivisible(node* head, int toDisplay)
         1   Write a function to display every other Node in the list. Return the number of nodes that are not displayed.    int displayEveryOther(node* head)
         1   Write a function to add the sum of the data from the first two nodes to the end of the list. Return the sum of the list.    int addToEnd(node*& head)

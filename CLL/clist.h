@@ -63,8 +63,11 @@ class list
         int modifyAfter(node* head);
         int modifyAfter(node* head, int toAdd, bool found, int count);
 
+        //write a function to reverse the list. return number of nodes in the list.
+        int reverseAll();
+        int reverseAll(node*& head);
+        int reverseAll(node*& head, node* prev, int count);
         /*
-        3   Write a function to reverse the List. Return number of nodes in the list.   int reverseAll(node*& head)
         3   Write a function to add a node that contains the data passed into the function at the end of the list for each node that is divisible by the first node's data  int appendIfDivisible (node*& head, int toAdd)
         */
 

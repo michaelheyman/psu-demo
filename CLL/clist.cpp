@@ -260,3 +260,33 @@ int list::modifyAfter(node* head, int toAdd, bool found, int count) {
 
     return modifyAfter(head->next, toAdd, found, count);
 }
+
+//write a function to reverse the list. return number of nodes in the list.
+int list::reverseAll() {
+    cout << __func__ << endl;
+    return reverseAll(rear->next);
+}
+int list::reverseAll(node*& head) {
+    if (!head)
+        return 0;
+
+    return reverseAll(head, rear, 0);
+}
+int list::reverseAll(node*& head, node* prev, int count) {
+    if (!head)
+        return count;
+
+    if (head == rear) {
+        rear = rear->next;
+        head->next = prev;
+        return ++count;
+    }
+
+    node* nextNode = new node;
+    nextNode = head->next;
+
+    head->next = prev;
+    //prev = head;
+
+    return reverseAll(nextNode, head, ++count);
+}

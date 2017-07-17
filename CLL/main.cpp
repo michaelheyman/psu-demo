@@ -8,7 +8,7 @@ int main()
     object.display();	//displays the list
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    cout << "nodes before: " << object.modifyAfter() << endl;
+    cout << "total: " << object.reverseAll() << endl;
 
     object.display(); //resulting list after your function call!
     

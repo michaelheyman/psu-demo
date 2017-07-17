@@ -25,9 +25,9 @@ class list
         /* *****************YOUR TURN! ******************************** */
         /* place your prototype here */
         //Write a function to display the list. Return the number of nodes.
+        int displayAll();
         int displayAll(node* head);
-        int displayAll(node* head);
-        int displayAll(node* head);
+        int displayAll(node* head, int count);
 
         /*
         0   Write a function to display the list in reverse order. Return the number of nodes.  int displayReverse(node* head)

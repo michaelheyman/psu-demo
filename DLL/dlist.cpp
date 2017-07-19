@@ -82,3 +82,35 @@ int list::displayEveryOther(node* head, int count, int displayed) {
 
     return displayEveryOther(head->next, ++count, displayed);
 }
+
+//Write a function to add the sum of the data from the first two nodes to the end of the list. Return the sum of the list.
+int list::addToEnd() {
+    cout << __func__ << endl;
+    return addToEnd(head);
+}
+int list::addToEnd(node*& head) {
+    if (!head)
+        return 0;
+
+    return addToEnd(head, 0, 0);
+}
+int list::addToEnd(node*& head, int index, int sum) {
+    if (!head)
+        return sum;
+
+    if (index == 0)
+        sum += head->data;
+
+    if (index == 1) {
+        sum += head->data;
+        node * newNode = new node;
+        newNode->data = sum;
+        newNode->next = NULL;
+        newNode->previous = tail;
+        tail->next = newNode;
+        tail = newNode;
+        return sum;
+        //NOTE: continue here
+    }
+    return addToEnd(head->next, ++index, sum);
+}

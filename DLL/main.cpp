@@ -8,7 +8,7 @@ int main()
     object.display();
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    cout << "total: " << object.displayEveryOther() << endl;
+    cout << "total: " << object.addToEnd() << endl;
 
     object.display();
     

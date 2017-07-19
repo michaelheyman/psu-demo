@@ -43,8 +43,13 @@ class list
         int displayEveryOther();
         int displayEveryOther(node* head);
         int displayEveryOther(node* head, int count, int displayed);
+
+        //Write a function to add the sum of the data from the first two nodes to the end of the list. Return the sum of the list.
+        int addToEnd();
+        int addToEnd(node*& head);
+        int addToEnd(node*& head, int index, int sum);
+
         /*
-        1   Write a function to add the sum of the data from the first two nodes to the end of the list. Return the sum of the list.    int addToEnd(node*& head)
         1   Write a function to add the data passed in to the function after every instance of a 2 in the list. Return the number of nodes that were added to the list. int addAfter2(node*& head, int toAdd)
         1   Write a function to add the data passed in to the function before every instance of a 2 in the list. Return the number of nodes that were added to the list.    int addBefore2(node*& head, int toAdd)
         3   Write a function to add the data of the first node that is divisible by three or five to every following node in the list. Return number of nodes that occur before one is divisible by three or five.  int modifyAfter(node* head)

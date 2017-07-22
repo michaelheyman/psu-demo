@@ -1,4 +1,4 @@
-gC = g++
+CC = g++
 CPPFLAGS = -Wall -g -std=c++11
 OBJS = main.o supplied.o table.o
 

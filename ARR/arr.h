@@ -21,9 +21,6 @@ class table
 
 
         /* *****************YOUR TURN! ******************************** */
-        //Write your function prototype here:
-
-
 
     private:
         node ** head;     //dynamically allocated array

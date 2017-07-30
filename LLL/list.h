@@ -106,7 +106,7 @@ class list
 
         //Add a node to the end but only if it doesn't already exist in the list
         int addIfUnique(int toAdd);
-        int addIfUnique(node * head, int toAdd);
+        int addIfUnique(node *& head, int toAdd);
 
         //Add a node to the end that is the sum of all the data in the list
         int addSum();

@@ -63,17 +63,23 @@ code to build, display, and destroy the data structure assigned.
 3. Write a recursive function in C++ to add a node to the end, if it is unique
 4. Write a recursive function in C++ to move the last node to the beginning
 5. Write a recursive function in C++ to copy the data structure
+6. Write a recursive function in C++ to remove all nodes with even data.
+7. Write a recursive function in C++ to compute the average of all data.
+8. Write a recursive function in C++ to add a note to the end but only if it doesn't already exist in the list
+9. Write a recursive function in C++ to add a node to the end that is the sum of all data in the list
+10. Write a recursive function in C++ to move the last node to the beginning of a list
+11. Write a recursive function in C++ to make a complete copy of the list
 
 ##### Binary search trees
 
 1. Write a recursive function in C++ to make a copy of a binary search tree
-2. Write a recursive function in C++ to make a copy of a binary search tree and place it in a
-linear linked list, sorted
-3. Write a recursive function in C++ to take a sorted array and insert it into a binary search
-tree balanced
-5. Write a recursive function in C++ to add a node into a binary search tree
-6. Write a recursive function in C++ to remove the largest item in a binary search tree
-8. Write a recursive function in C++ to find the root’s in-order successor
+2. Write a recursive function in C++ to make a copy of a binary search tree and place it in a linear linked list, sorted
+3. Write a recursive function in C++ to take a sorted array and insert it into a binary search tree balanced
+4. Write a recursive function in C++ to add a node into a binary search tree
+5. Write a recursive function in C++ to remove the largest item in a binary search tree
+6. Write a recursive function in C++ to remove the largest two items in a binary search tree
+7. Write a recursive function in C++ to find the root’s in-order successor
+8. Write a recursive function in C++ to find the inorder successor of a specified item
 
 ---
 

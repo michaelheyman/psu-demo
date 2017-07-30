@@ -419,7 +419,6 @@ int list::addIfUnique(int toAdd) {
 int list::addIfUnique(node *& head, int toAdd) {
     if (!head) {
         head = new node;
-        head = new node;
         head->data = toAdd;
         head->next = NULL;
         tail->next = head;

@@ -1,11 +1,21 @@
 #include "table.h"
 #include <queue>
 
+bool table::run = 0;
+
 void table::displayBFS() {
     cout << __func__ << endl;
+    if (run)
+        cout << "The resulting tree after your function ran is:" << run << endl;
+
+    run++;
 
     if (!root)
         return;
+
+    cout << "Inorder traversal: ";
+    inorder(root);
+    cout << endl << endl;
 
     queue<node*> q;
     queue<int> levelQueue;
@@ -30,6 +40,16 @@ void table::displayBFS() {
             levelQueue.push(level);
         }
     }
+    cout << endl << endl;
+}
+void table::inorder(node * root) {
+    if (!root)
+        return;
+
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+    return;
 }
 
 //Write a function to display the tree in order. Return the number of nodes.
@@ -77,4 +97,34 @@ int table::displayDivisible(node* root, int toDisplay) {
         cout << root->data << " ";
 
     return 1 + displayDivisible(root->left, toDisplay) + displayDivisible(root->right, toDisplay);
+}
+
+//Write a function to add the data passed in to the function to the tree.
+int table::insertData(int toAdd) {
+    cout << __func__ << endl;
+    return insert(root, toAdd);
+}
+int table::insertData(node*& root, int toAdd) {
+    if (!root)
+        return 0;
+
+    if (toAdd < root->data)
+        return insertData(root->left, toAdd);
+
+    return insertData(root->right, toAdd);
+}
+
+int table::insert(node*& root, int toAdd) {
+    if (!root) {
+        root = new node;
+        root->data = toAdd;
+        root->left = NULL;
+        root->right = NULL;
+        return 1;
+    }
+
+    if (root->data < toAdd)
+        return insert(root->right, toAdd);
+    else
+        return insert(root->left, toAdd);
 }

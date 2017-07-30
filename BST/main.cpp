@@ -4,13 +4,14 @@ int main()
 {
     table object;
     object.build(); 	//builds a BST
-    object.display();	//displays a BST
+    //object.display();	//displays a BST
+    object.displayBFS();
 
     /*  PLACE YOUR FUNCTION CALL HERE */
-    cout << "total: " << object.displayDivisible(2) << endl;
+    cout << "total: " << object.insertData(3) << endl;
 
     object.displayBFS();
-    object.display();	//displays again after!
+    //object.display();	//displays again after!
 
     return 0;
 }

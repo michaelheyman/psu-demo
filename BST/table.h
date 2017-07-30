@@ -22,6 +22,7 @@ class table
 
         /* ************** PLACE YOUR PROTOTYPE HERE ***************** */
         void displayBFS();
+        void inorder(node * root);
 
         //Write a function to display the tree in order. Return the number of nodes.
         int displayAll();
@@ -34,8 +35,13 @@ class table
         //Write a function to display every node that is divisible by the argument passed in. Return number of nodes displayed.
         int displayDivisible(int toDisplay);
         int displayDivisible(node* root, int toDisplay);
+
+        //Write a function to add the data passed in to the function to the tree.
+        int insertData(int toAdd);
+        int insertData(node*& root, int toAdd);
+        int insert(node*& root, int toAdd);
+
         /*
-        1   Write a function to add the data passed in to the function to the tree. int insertData(node*& root, int toAdd)
         3   Write a function to remove every node that is divisible by 3 and 5 from the Tree. Return the number of nodes removed    int removeDivisible(node*& root)
         3   Write a function to display the data in the longest path of the tree.   int longestPath(node* root)
         4   Write a function to return the average of the longest path in a tree.   int avgPath(node* root)
@@ -47,6 +53,7 @@ class table
         */
     private:
         node * root;
+        static bool run;
 };
 
 

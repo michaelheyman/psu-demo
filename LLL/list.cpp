@@ -362,3 +362,51 @@ int list::removeExceptLastTwo(node *& head, node *& tail) {
 
     return 1 + removeExceptLastTwo(head, tail);
 }
+
+//Remove all nodes with even data
+int list::removeEven() {
+    cout << __func__ << endl;
+    return removeEven(head, tail);
+}
+int list::removeEven(node *& head, node *& tail) {
+    if (!head)
+       return 0;
+    if (head->next == tail && tail->data % 2 == 0) {
+        head->next = NULL;
+        delete tail;
+        tail = head;
+
+        return 1;
+    }
+
+    if (head->data % 2 == 0) {
+        node * temp = head;
+
+        //cout << endl << "removing " << head->data << endl;
+        head = head->next;
+        delete temp;
+
+        //displayAll();
+        //cout << endl;
+        //cout << "tail->data: " << tail->data << endl;
+
+        return 1 + removeEven(head, tail);
+    }
+
+    return removeEven(head->next, tail);
+}
+
+//Compute the average of all data
+int list::average() {
+    cout << __func__ << endl;
+    return average(head, 0, 0);
+}
+int list::average(node * head, int sum, int count) {
+    if (!head)
+        return sum / count;
+
+    sum += head->data;
+    count++;
+
+    return average(head->next, sum, count);
+}

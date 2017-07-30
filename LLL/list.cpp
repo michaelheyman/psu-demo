@@ -410,3 +410,26 @@ int list::average(node * head, int sum, int count) {
 
     return average(head->next, sum, count);
 }
+
+//Add a node to the end but only if it doesn't already exist in the list
+int list::addIfUnique(int toAdd) {
+    cout << __func__ << endl;
+    return addIfUnique(head, toAdd);
+}
+int list::addIfUnique(node * head, int toAdd) {
+    if (head == tail && head->data != toAdd) {
+        node * newNode = new node;
+        newNode = new node;
+        newNode->data = toAdd;
+        newNode->next = NULL;
+        tail->next = newNode;
+        tail = newNode;
+
+        return 1;
+    }
+
+    if (head->data == toAdd)
+        return 0;
+
+    return addIfUnique(head->next, toAdd);
+}

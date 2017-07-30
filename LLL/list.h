@@ -104,6 +104,10 @@ class list
         int average();
         int average(node * head, int sum, int count);
 
+        //Add a node to the end but only if it doesn't already exist in the list
+        int addIfUnique(int toAdd);
+        int addIfUnique(node * head, int toAdd);
+
     private:		//notice there is both a head and a tail!
         node * head;
         node * tail;

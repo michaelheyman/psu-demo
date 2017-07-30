@@ -92,6 +92,10 @@ class list
         int removeExceptFirstLast();
         int removeExceptFirstLast(node *& head, node *& tail);
 
+        //Remove all noces except the first and the last two nodes
+        int removeExceptLastTwo();
+        int removeExceptLastTwo(node *& head, node *& tail);
+
     private:		//notice there is both a head and a tail!
         node * head;
         node * tail;

@@ -333,9 +333,6 @@ int list::removeExceptFirstLast() {
 int list::removeExceptFirstLast(node *& head, node *& tail) {
     if (!head)
         return 0;
-
-    if (!head)
-        return 0;
     if (head == tail)
         return 0;
 
@@ -344,4 +341,24 @@ int list::removeExceptFirstLast(node *& head, node *& tail) {
     delete temp;
 
     return 1 + removeExceptFirstLast(head, tail);
+}
+
+//Remove all noces except the first and the last two nodes
+int list::removeExceptLastTwo() {
+    cout << __func__ << endl;
+    return removeExceptLastTwo(head, tail);
+}
+int list::removeExceptLastTwo(node *& head, node *& tail) {
+    if (!head)
+        return 0;
+    if (head->next == tail)
+        return 0;
+    if (head == tail)
+        return 0;
+
+    node * temp = head;
+    head = head->next;
+    delete temp;
+
+    return 1 + removeExceptLastTwo(head, tail);
 }

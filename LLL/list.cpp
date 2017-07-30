@@ -432,23 +432,6 @@ int list::addIfUnique(node *& head, int toAdd) {
 
     return addIfUnique(head->next, toAdd);
 }
-//int list::addIfUnique(node * head, int toAdd) {
-//    if (head == tail && head->data != toAdd) {
-//        node * newNode = new node;
-//        newNode = new node;
-//        newNode->data = toAdd;
-//        newNode->next = NULL;
-//        tail->next = newNode;
-//        tail = newNode;
-//
-//        return 1;
-//    }
-//
-//    if (head->data == toAdd)
-//        return 0;
-//
-//    return addIfUnique(head->next, toAdd);
-//}
 
 //Add a node to the end that is the sum of all the data in the list
 int list::addSum() {
@@ -469,4 +452,27 @@ int list::addSum(node *& head, int sum) {
     sum += head->data;
 
     return 1 + addSum(head->next, sum);
+}
+
+//Move the last node to the beginning of the list
+int list::moveLastToBegin() {
+    cout << __func__ << endl;
+    return moveLastToBegin(head);
+}
+int list::moveLastToBegin(node * curr) {
+    if (!curr)
+        return 0;
+
+    if (curr == tail)
+        return 0;
+
+    if (curr->next == tail) {
+        tail->next = head;
+        head = tail;
+        curr->next = NULL;
+        tail = curr;
+        return 1;
+    }
+
+    return 1 + moveLastToBegin(curr->next);
 }

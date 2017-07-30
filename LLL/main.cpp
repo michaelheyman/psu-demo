@@ -9,7 +9,7 @@ int main()
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
     //cout << object.removeEven() << endl;
-    cout << object.addIfUnique(1033) << endl;
+    cout << object.moveLastToBegin() << endl;
 
     //object.displayAll();
     object.display();  //displays the LLL again!

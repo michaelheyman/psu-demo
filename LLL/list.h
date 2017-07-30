@@ -112,6 +112,10 @@ class list
         int addSum();
         int addSum(node *& head, int sum);
 
+        //Move the last node to the beginning of the list
+        int moveLastToBegin();
+        int moveLastToBegin(node * curr);
+
     private:		//notice there is both a head and a tail!
         node * head;
         node * tail;

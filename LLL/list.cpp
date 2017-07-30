@@ -322,3 +322,26 @@ int list::swap3(node*& first, node*& second, node*& third, int count) {
 
     return 0;
 }
+
+//Remove all noces except the first and the last node
+int list::removeExceptFirstLast() {
+    cout << __func__ << endl;
+    if (!head)
+        return 0;
+    return removeExceptFirstLast(head->next, tail);
+}
+int list::removeExceptFirstLast(node *& head, node *& tail) {
+    if (!head)
+        return 0;
+
+    if (!head)
+        return 0;
+    if (head == tail)
+        return 0;
+
+    node * temp = head;
+    head = head->next;
+    delete temp;
+
+    return 1 + removeExceptFirstLast(head, tail);
+}

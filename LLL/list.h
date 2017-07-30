@@ -88,6 +88,10 @@ class list
         int swap3(node*& head);
         int swap3(node*& first, node*& second, node*& third, int count);
 
+        //Remove all noces except the first and the last node
+        int removeExceptFirstLast();
+        int removeExceptFirstLast(node *& head, node *& tail);
+
     private:		//notice there is both a head and a tail!
         node * head;
         node * tail;

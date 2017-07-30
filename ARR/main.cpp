@@ -8,7 +8,7 @@ int main()
     object.display(); //displays the array
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    object.displayAll();
+    cout << object.displayReverse() << endl;
 
 
     object.display();  //display again afterward!

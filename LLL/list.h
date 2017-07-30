@@ -108,6 +108,10 @@ class list
         int addIfUnique(int toAdd);
         int addIfUnique(node * head, int toAdd);
 
+        //Add a node to the end that is the sum of all the data in the list
+        int addSum();
+        int addSum(node *& head, int sum);
+
     private:		//notice there is both a head and a tail!
         node * head;
         node * tail;

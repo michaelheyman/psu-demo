@@ -433,3 +433,24 @@ int list::addIfUnique(node * head, int toAdd) {
 
     return addIfUnique(head->next, toAdd);
 }
+
+//Add a node to the end that is the sum of all the data in the list
+int list::addSum() {
+    cout << __func__ << endl;
+    return addSum(head, 0);
+}
+int list::addSum(node *& head, int sum) {
+    if (!head) {
+        head = new node;
+        head->data = sum;
+        head->next = NULL;
+        tail = head;
+
+        return 0;
+    }
+
+
+    sum += head->data;
+
+    return 1 + addSum(head->next, sum);
+}

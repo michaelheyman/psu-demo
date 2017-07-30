@@ -116,6 +116,10 @@ class list
         int moveLastToBegin();
         int moveLastToBegin(node * curr);
 
+        //Make a complete copy of the list
+        int copy(node *& destination);
+        int copy(node *& source, node *& destination);
+
     private:		//notice there is both a head and a tail!
         node * head;
         node * tail;

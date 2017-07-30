@@ -476,3 +476,19 @@ int list::moveLastToBegin(node * curr) {
 
     return 1 + moveLastToBegin(curr->next);
 }
+
+//Make a complete copy of the list
+int list::copy(node *& destination) {
+    cout << __func__ << endl;
+    return copy(head, destination);
+}
+int list::copy(node *& source, node *& destination) {
+    if (!source)
+        return 0;
+
+    destination = new node;
+    destination->data = source->data;
+    destination->next = NULL;
+
+    return 1 + copy(source->next, destination->next);
+}

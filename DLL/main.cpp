@@ -8,7 +8,7 @@ int main()
     object.display();
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    cout << "total: " << object.addBefore2(1033) << endl;
+    cout << object.modifyAfter() << endl;
 
     object.display();
     

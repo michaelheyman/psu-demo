@@ -8,7 +8,7 @@ int main()
     object.display(); //displays the array
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    cout << object.displayDivisible(2) << endl;
+    cout << object.displayEveryOther() << endl;
 
 
     object.display();  //display again afterward!

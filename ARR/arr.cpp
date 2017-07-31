@@ -82,3 +82,31 @@ int table::displayDivisible(node** head, int toDisplay) {
 
     return count + displayDivisible(++head, toDisplay);
 }
+
+//Write a function to display every other Node in each list. Return the number of nodes that are not displayed.
+int table::displayEveryOther() {
+    cout << __func__ << endl;
+    return displayEveryOther(head);
+}
+int table::displayEveryOther(node* head, int index) {
+    if (!head)
+        return 0;
+
+    if (index % 2 == 0) {
+        cout << head->data << " ";
+        return displayEveryOther(head->next, ++index);
+    }
+
+    return 1 + displayEveryOther(head->next, ++index);
+}
+int table::displayEveryOther(node** head) {
+    if (!head)
+        return 0;
+    if (*head == this->head[size])
+        return 0;
+
+    int count = displayEveryOther(*head, 0);
+    cout << endl;
+
+    return count + displayEveryOther(++head);
+}

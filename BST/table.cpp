@@ -6,7 +6,7 @@ bool table::run = 0;
 void table::displayBFS() {
     cout << __func__ << endl;
     if (run)
-        cout << "The resulting tree after your function ran is:" << run << endl;
+        cout << "The resulting tree after your function ran is:" << endl;
 
     run++;
 
@@ -127,4 +127,23 @@ int table::insert(node*& root, int toAdd) {
         return insert(root->right, toAdd);
     else
         return insert(root->left, toAdd);
+}
+
+//Make a copy of a BST
+int table::copy(table &destination) {
+    cout << __func__ << endl;
+    return copy(root, destination.root);
+}
+int table::copy(node *& destination) {
+    cout << __func__ << endl;
+    return copy(root, destination);
+}
+int table::copy(node *& source, node *& destination) {
+    if (!source)
+        return 0;
+
+    destination = new node;
+    destination->data = source->data;
+
+    return 1 + copy(source->left, destination->left) + copy(source->right, destination->right);
 }

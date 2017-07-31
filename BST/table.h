@@ -41,8 +41,8 @@ class table
         int insertData(node*& root, int toAdd);
         int insert(node*& root, int toAdd);
 
+        //Write a function to remove every node that is divisible by 3 and 5 from the Tree. Return the number of nodes removed
         /*
-        3   Write a function to remove every node that is divisible by 3 and 5 from the Tree. Return the number of nodes removed    int removeDivisible(node*& root)
         3   Write a function to display the data in the longest path of the tree.   int longestPath(node* root)
         4   Write a function to return the average of the longest path in a tree.   int avgPath(node* root)
         3   Write a function that returns the average of the data contained in the tree int avgData(node* root)
@@ -51,6 +51,12 @@ class table
         2   Write a function to remove all the leaves from a tree. return number of nodes removed.  int prune(node*& root)
         3   Write a function to copy a tree, excluding its' root, into a new tree. return number of nodes copied.   int copyNoRoot(node* srcRoot, node*& destRoot)
         */
+
+        //Make a copy of a BST
+        int copy(table &destination);
+        int copy(node *& destination);
+        int copy(node *& root, node *& destination);
+
     private:
         node * root;
         static bool run;

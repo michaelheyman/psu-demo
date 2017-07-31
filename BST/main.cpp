@@ -4,13 +4,14 @@ int main()
 {
     table object;
     object.build(); 	//builds a BST
-    //object.display();	//displays a BST
-    object.displayBFS();
+    object.display();	//displays a BST
+
 
     /*  PLACE YOUR FUNCTION CALL HERE */
-    cout << "total: " << object.insertData(3) << endl;
+    table newTable;
+    object.copy(newTable);
 
-    object.displayBFS();
+    newTable.display();
     //object.display();	//displays again after!
 
     return 0;

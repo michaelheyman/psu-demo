@@ -7,7 +7,7 @@ int main()
     object.display();  //displays the LLL
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    cout << object.addBefore2(1033) << endl;
+    cout << object.modifyAfter() << endl;
 
    
     object.display();  //displays the LLL again!

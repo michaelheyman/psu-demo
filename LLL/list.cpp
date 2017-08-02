@@ -239,3 +239,32 @@ int list::appendIfDivisible(node*& head, int toAdd) {
 
     return appendIfDivisible(head->next, toAdd);
 }
+
+//Write a function that returns the average of the unique items in the list.
+float list::averageSpecial() {
+    cout << __func__ << endl;
+    return averageSpecial(head);
+}
+float list::averageSpecial(node* head) {
+    int sum = 0;
+    return averageSpecial(head, sum) / sum;
+}
+float list::averageSpecial(node* head, int &count) {
+    if (!head)
+        return 0;
+
+    if (isUnique(head, this->head))
+        return head->data + averageSpecial(head->next, ++count);
+
+    return averageSpecial(head->next, count);
+}
+bool list::isUnique(node * head, node * curr){ 
+    if (!curr)
+        return true;
+    if (curr == head)
+        return isUnique(head, curr->next);
+    if (curr->data == head->data)
+        return false;
+
+    return isUnique(head, curr->next);
+}

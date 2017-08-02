@@ -7,7 +7,7 @@ int main()
     object.display();  //displays the LLL
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    cout << "\n" << object.reverseAll() << endl;
+    cout << object.appendIfDivisible(1033) << endl;
 
    
     object.display();  //displays the LLL again!

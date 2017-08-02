@@ -100,7 +100,6 @@ int list::addToEnd(node*& head) {
 }
 
 //Write a function to add the data passed in to the function after every instance of a 2 in the list. Return the number of nodes that were added to the list.
-//NOTE: not working for the case where the last two nodes are 2
 int list::addAfter2(int toAdd) {
     cout << __func__ << endl;
     return addAfter2(head, toAdd);
@@ -109,14 +108,14 @@ int list::addAfter2(node*& head, int toAdd) {
     if (!head)
         return 0;
 
-    if (head->next == tail && tail->data == 2) {
+    if (head == tail && tail->data == 2) {
         node * newNode = new node;
         newNode->data = toAdd;
         newNode->next = tail->next;
         tail->next = newNode;
         tail = tail->next;
 
-        return 0;
+        return 1;
     }
 
     if (head->data == 2) {
@@ -193,4 +192,28 @@ int list::modifyAfter(node* head, int toAdd) {
     head->data += toAdd;
 
     return modifyAfter(head->next, toAdd);
+}
+
+//Write a function to reverse the List. Return number of nodes in the list.
+int list::reverseAll() {
+    cout << __func__ << endl;
+    return reverseAll(head);
+}
+int list::reverseAll(node*& head) {
+    if (!head)
+        return 0;
+    return reverseAll(head, NULL);
+}
+int list::reverseAll(node*& head, node * prev) {
+    if (!head) {
+        node * swap = this->head;
+        this->head = this->tail;
+        this->tail = swap;
+        return 0;
+    }
+    
+    node * next = head->next;
+    head->next = prev;
+
+    return 1 + reverseAll(next, head);
 }

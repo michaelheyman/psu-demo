@@ -7,7 +7,7 @@ int main()
     object.display();  //displays the LLL
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    cout << object.averageSpecial() << endl;
+    cout << object.swap3() << endl;
 
    
     object.display();  //displays the LLL again!

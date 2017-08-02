@@ -268,3 +268,40 @@ bool list::isUnique(node * head, node * curr){
 
     return isUnique(head, curr->next);
 }
+
+//Write a function that reverses every 3 nodes in a list, any remainders at the end of the list should be left as they are. Return the number of swapped nodes
+int list::swap3() {
+    cout << __func__ << endl;
+    return swap3(head);
+}
+int list::swap3(node*& head) {
+    return swap3(head, NULL);
+}
+int list::swap3(node*& head, node* prev) {
+    if (!head)
+        return 0;
+    if (!head->next)
+        return 0;
+    if (!head->next->next)
+        return 0;
+
+    node * first = head;
+    node * second = head->next;
+    node * third = head->next->next;
+
+    second->next = first;
+    first->next = third->next;
+    third->next = second;
+
+    if (prev)
+        prev->next = third;
+
+    if (first == this->head)
+        this->head = third;
+
+    if (third == this->tail)
+        this->tail = first;
+
+    return 3 + swap3(first->next, first);
+}
+

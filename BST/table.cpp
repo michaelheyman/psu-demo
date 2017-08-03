@@ -50,3 +50,22 @@ int table::displayDivisible(node* root, int toDisplay) {
 
     return displayDivisible(root->left, toDisplay) + displayDivisible(root->right, toDisplay);
 }
+
+//Write a function to add the data passed in to the function to the tree.
+int table::insertData(int toAdd) {
+    cout << __func__ << endl;
+    return insertData(root, toAdd);
+}
+int table::insertData(node*& root, int toAdd) {
+    if (!root) {
+        root = new node;
+        root->data = toAdd;
+
+        return 0;
+    }
+
+    if (toAdd < root->data)
+        return 1 + insertData(root->left, toAdd);
+    else
+        return 1 + insertData(root->right, toAdd);
+}

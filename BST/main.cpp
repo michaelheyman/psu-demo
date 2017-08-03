@@ -7,7 +7,7 @@ int main()
     object.display();	//displays a BST
 
     /*  PLACE YOUR FUNCTION CALL HERE */
-    cout << "\n" << object.displayDivisible(2) << endl;
+    cout << object.insertData(15) << endl;
 
     object.display();	//displays again after!
 

@@ -7,6 +7,7 @@ int main()
     object.display();	//displays a BST
 
     /*  PLACE YOUR FUNCTION CALL HERE */
+    cout << "\n" << object.displayAll() << endl;
 
     object.display();	//displays again after!
 

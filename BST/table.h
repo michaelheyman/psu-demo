@@ -22,9 +22,11 @@ class table
 
         /* ************** PLACE YOUR PROTOTYPE HERE ***************** */
 
+        //Write a function to display the tree in order. Return the number of nodes.
+        int displayAll();
+        int displayAll(node* root);
+
         /*
-        0   Write a function to display the tree in order. Return the number of nodes.  int displayAll(node* root)
-        0   Write a function to display the tree in reverse order. Return the number of nodes.  int displayReverse(node* root)
         0   Write a function to display every node that is divisible by the argument passed in. Return number of nodes displayed.   int displayDivisible(node* root, int toDisplay)
         1   Write a function to add the data passed in to the function to the tree. int insertData(node*& root, int toAdd)
         3   Write a function to remove every node that is divisible by 3 and 5 from the Tree. Return the number of nodes removed    int removeDivisible(node*& root)

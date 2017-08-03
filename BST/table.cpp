@@ -33,3 +33,20 @@ int table::displayReverse(node* root) {
 
     return count;
 }
+
+//Write a function to display every node that is divisible by the argument passed in. Return number of nodes displayed.
+int table::displayDivisible(int toDisplay) {
+    cout << __func__ << endl;
+    return displayDivisible(root, toDisplay);
+}
+int table::displayDivisible(node* root, int toDisplay) {
+    if (!root)
+        return 0;
+
+    if (root->data % 2 == 0) {
+        cout << root->data << " ";
+        return 1 + displayDivisible(root->left, toDisplay) + displayDivisible(root->right, toDisplay);
+    }
+
+    return displayDivisible(root->left, toDisplay) + displayDivisible(root->right, toDisplay);
+}

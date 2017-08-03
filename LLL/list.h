@@ -81,6 +81,21 @@ class list
         4   Write a function that takes 2 lists and creates a new list where the nth node is the average of the nth items in the two input lists. Return the average of the new list.   float CopySpecialAvg (node*& source1, node*& source2, node*& dest)
         */
 
+        //Write a recursive function in C++ to remove all nodes with even data.
+        int removeEven();
+        int removeEven(node *& head, node * prev);
+
+        /*
+        Write a recursive function in C++ to remove the last two nodes
+        Write a recursive function in C++ to add a node to the end, if it is unique
+        Write a recursive function in C++ to move the last node to the beginning
+        Write a recursive function in C++ to copy the data structure
+        Write a recursive function in C++ to compute the average of all data.
+        Write a recursive function in C++ to add a note to the end but only if it doesn't already exist in the list
+        Write a recursive function in C++ to add a node to the end that is the sum of all data in the list
+        Write a recursive function in C++ to move the last node to the beginning of a list
+        Write a recursive function in C++ to make a complete copy of the list
+        */
     private:		//notice there is both a head and a tail!
         node * head;
         node * tail;

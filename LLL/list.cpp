@@ -305,3 +305,48 @@ int list::swap3(node*& head, node* prev) {
     return 3 + swap3(first->next, first);
 }
 
+//---------------------------------------------------------------------------
+
+
+//Write a recursive function in C++ to remove all nodes with even data.
+int list::removeEven() {
+    cout << __func__ << endl;
+    return removeEven(head, NULL);
+}
+int list::removeEven(node *& head, node * prev) {
+    if (!head)
+        return 0;
+
+    if (head->data % 2 == 0) {
+        if (head == this->head && head == this->tail) { //list with one element
+            delete head;
+            this->head = NULL;
+            this->tail = NULL;
+            
+            return 1;
+        }
+        if (head == this->head) {   //deleting head
+            node * temp = head;
+            this->head = head->next;
+            delete temp;
+            
+            return 1 + removeEven(this->head, prev);
+        }
+        if (head == this->tail) {   //deleting tail
+            delete head;
+            prev->next = NULL;
+            this->tail = prev;
+
+            return 1;
+        }
+        else {                      //deleting middle
+            node * temp = head;
+            prev->next = head->next;
+            delete temp;
+
+            return 1 + removeEven(prev->next, prev);
+        }
+    }
+
+    return removeEven(head->next, head);
+}

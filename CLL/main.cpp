@@ -8,7 +8,7 @@ int main()
     object.display();	//displays the list
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    cout << "\n" << object.displayEveryOther() << endl;
+    cout << object.addToEnd() << endl;
 
     object.display(); //resulting list after your function call!
     

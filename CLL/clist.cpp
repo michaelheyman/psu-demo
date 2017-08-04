@@ -183,3 +183,33 @@ int list::addBefore2(node*& head, int toAdd) {
     
     return addBefore2(head->next, toAdd);
 }
+
+//Write a function to add the data of the first node that is divisible by three or five to every following node in the list. Return number of nodes that occur before one is divisible by three or five.
+int list::modifyAfter() {
+    cout << __func__ << endl;
+    return modifyAfter(rear->next);
+}
+int list::modifyAfter(node* head) {
+    if (!head)
+        return 0;
+    if (head == this->rear)
+        return 0;
+
+    if (head->data % 3 == 0 || head->data % 5 == 0) {
+        return modifyAfter(head->next, head->data);
+    }
+
+    return 1 + modifyAfter(head->next);
+}
+int list::modifyAfter(node* head, int data) {
+    if (!head)
+        return 0;
+    if (head == this->rear) {
+        head->data += data;
+        return 0;
+    }
+
+    head->data += data;
+
+    return modifyAfter(head->next, data);
+}

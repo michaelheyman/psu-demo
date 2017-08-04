@@ -146,3 +146,40 @@ int list::addAfter2(node*& head, int toAdd) {
 
     return addAfter2(head->next, toAdd);
 }
+
+//Write a function to add the data passed in to the function before every instance of a 2 in the list. Return the number of nodes that were added to the list.
+int list::addBefore2(int toAdd) {
+    cout << __func__ << endl;
+    return addBefore2(rear->next, toAdd);
+}
+int list::addBefore2(node*& head, int toAdd) {
+    if (!head)
+        return 0;
+    if (head == this->rear)
+        return 0;
+
+    if (head == this->rear->next && head->data == 2) {  //this->head is a 2
+        node * newNode = new node;
+        newNode->data = toAdd;
+        newNode->next = head;
+        this->rear->next = newNode;
+        head = newNode;
+
+        return 1 + addBefore2(head->next->next, toAdd);
+    }
+
+    if (head->next->data == 2) {    //adding in middle or tail
+        cout << "adding" << endl;
+        node * newNode = new node;
+        newNode->data = toAdd;
+        newNode->next = head->next;
+        head->next = newNode;
+
+        if (newNode->next == this->rear)
+            return 1;
+
+        return 1 + addBefore2(newNode->next->next->next, toAdd);
+    }
+    
+    return addBefore2(head->next, toAdd);
+}

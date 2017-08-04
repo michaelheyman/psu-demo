@@ -112,3 +112,37 @@ int list::addToEnd(node*& head) {
     
     return head->data + addToEnd(head->next);
 }
+
+//Write a function to add the data passed in to the function after every instance of a 2 in the list. Return the number of nodes that were added to the list.
+int list::addAfter2(int toAdd) {
+    cout << __func__ << endl;
+    return addAfter2(rear->next, toAdd);
+}
+int list::addAfter2(node*& head, int toAdd) {
+    if (!head)
+        return 0;
+    if (head == this->rear) {
+        if (head->data == 2) {
+            node * newNode = new node;
+            newNode->data = toAdd;
+            newNode->next = this->rear->next;
+            this->rear->next = newNode;
+            this->rear = newNode;
+
+            return 1;
+        }
+
+        return 0;
+    }
+
+    if (head->data == 2) {
+        node * newNode = new node;
+        newNode->data = toAdd;
+        newNode->next = head->next;
+        head->next = newNode;
+
+        return 1 + addAfter2(head->next, toAdd);
+    }
+
+    return addAfter2(head->next, toAdd);
+}

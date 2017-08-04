@@ -239,3 +239,39 @@ int list::reverseAll(node*& head, node* prev) {
 
     return 1 + reverseAll(next, head);
 }
+
+//Write a function to add a node that contains the data passed into the function at the end of the list for each node that is divisible by the first node's data
+int list::appendIfDivisible (int toAdd) {
+    cout << __func__ << endl;
+    return appendIfDivisible(rear->next, toAdd);
+}
+int list::appendIfDivisible (node*& head, int toAdd) {
+    if (!head)
+        return 0;
+    if (head == this->rear->next)
+        return appendIfDivisible(head->next, toAdd);
+    if (head == this->rear) {
+        if (head->data % this->rear->next->data == 0) {
+            node * newNode = new node;
+            newNode->next = head->next;
+            head->next = newNode;
+            this->rear = newNode;
+
+            return 1;
+        }
+        
+        return 0;
+    }
+
+    if (head->data % this->rear->next->data == 0) {
+        node * newNode = new node;
+        newNode->data = toAdd;
+        newNode->next = this->rear->next;
+        this->rear->next = newNode;
+        this->rear = newNode;
+
+        return 1 + appendIfDivisible(head->next, toAdd);
+    }
+    
+    return appendIfDivisible(head->next, toAdd);
+}

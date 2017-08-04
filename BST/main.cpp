@@ -7,8 +7,7 @@ int main()
     object.display();	//displays a BST
 
     /*  PLACE YOUR FUNCTION CALL HERE */
-    cout << "\n" << object.longestPath() << endl;
-    cout << object.avgPath() << endl;
+    cout << "\n" << object.avgData() << endl;
 
     object.display();	//displays again after!
 

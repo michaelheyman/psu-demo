@@ -47,9 +47,12 @@ class table
         int avgPath();
         int avgPath(node* root);
 
+        //Write a function that returns the average of the data contained in the tree
+        int avgData();
+        int avgData(node* root);
+
         /*
         3   Write a function to remove every node that is divisible by 3 and 5 from the Tree. Return the number of nodes removed    int removeDivisible(node*& root)
-        3   Write a function that returns the average of the data contained in the tree int avgData(node* root)
         2   Write a function to copy all the nodes that are greater than root into a new tree. Return the number of nodes copied    int copyGreater(node* srcRoot, node*& destRoot)
         3   Write a function to copy all even nodes from one tree into a new tree. return number of nodes divisible by 7    int copyDivisible(node* srcRoot, node*& destRoot)
         2   Write a function to remove all the leaves from a tree. return number of nodes removed.  int prune(node*& root)

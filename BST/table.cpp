@@ -111,3 +111,15 @@ int table::avgPath(node* root) {
     else
         return root->data + avgPath(root->right);
 }
+
+//Write a function that returns the average of the data contained in the tree
+int table::avgData() {
+    cout << __func__ << endl;
+    return avgData(root) / displayAll(root);
+}
+int table::avgData(node* root) {
+    if (!root)
+        return 0;
+
+    return root->data + avgData(root->left) + avgData(root->right);
+}

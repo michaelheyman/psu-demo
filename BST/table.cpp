@@ -96,3 +96,18 @@ int table::height(node*& root) {
 
     return 1 + max(height(root->left), height(root->right));
 }
+
+//Write a function to return the average of the longest path in a tree.
+int table::avgPath() {
+    cout << __func__ << endl;
+    return avgPath(root) / (1 + max(height(root->left), height(root->right)));
+}
+int table::avgPath(node* root) {
+    if (!root)
+        return 0;
+
+    if (height(root->left) > height(root->right))
+        return root->data + avgPath(root->left);
+    else
+        return root->data + avgPath(root->right);
+}

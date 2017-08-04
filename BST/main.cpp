@@ -8,6 +8,7 @@ int main()
 
     /*  PLACE YOUR FUNCTION CALL HERE */
     cout << "\n" << object.longestPath() << endl;
+    cout << object.avgPath() << endl;
 
     object.display();	//displays again after!
 

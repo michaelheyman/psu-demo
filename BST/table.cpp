@@ -69,3 +69,30 @@ int table::insertData(node*& root, int toAdd) {
     else
         return 1 + insertData(root->right, toAdd);
 }
+
+//Write a function to display the data in the longest path of the tree.
+int table::longestPath() {
+    cout << __func__ << endl;
+    return longestPath(root);
+}
+int table::longestPath(node* root) {
+    if (!root)
+        return 0;
+
+    int count = 0;
+
+    if (height(root->left) > height(root->right))
+        count += 1 + longestPath(root->left);
+    else
+        count += 1 + longestPath(root->right);
+
+    cout << root->data << " ";
+
+    return count;
+}
+int table::height(node*& root) {
+    if (!root)
+        return 0;
+
+    return 1 + max(height(root->left), height(root->right));
+}

@@ -7,7 +7,7 @@ int main()
     object.display();	//displays a BST
 
     /*  PLACE YOUR FUNCTION CALL HERE */
-    cout << object.insertData(15) << endl;
+    cout << "\n" << object.longestPath() << endl;
 
     object.display();	//displays again after!
 

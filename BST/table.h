@@ -38,9 +38,13 @@ class table
         int insertData(int toAdd);
         int insertData(node*& root, int toAdd);
 
+        //Write a function to display the data in the longest path of the tree.
+        int longestPath();
+        int longestPath(node* root);
+        int height(node*& root);
+
         /*
         3   Write a function to remove every node that is divisible by 3 and 5 from the Tree. Return the number of nodes removed    int removeDivisible(node*& root)
-        3   Write a function to display the data in the longest path of the tree.   int longestPath(node* root)
         4   Write a function to return the average of the longest path in a tree.   int avgPath(node* root)
         3   Write a function that returns the average of the data contained in the tree int avgData(node* root)
         2   Write a function to copy all the nodes that are greater than root into a new tree. Return the number of nodes copied    int copyGreater(node* srcRoot, node*& destRoot)

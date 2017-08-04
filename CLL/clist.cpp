@@ -36,3 +36,28 @@ int list::displayReverse(node* head) {
 
     return count;
 }
+
+//Write a function to display every node that is divisible by the argument passed in. Return number of nodes displayed.
+int list::displayDivisible(int toDisplay) {
+    cout << __func__ << endl;
+    return displayDivisible(rear->next, toDisplay);
+}
+int list::displayDivisible(node* head, int toDisplay) {
+    if (!head)
+        return 0;
+    if (head == this->rear) {
+        if (head->data % toDisplay == 0) {
+            cout << head->data << " ";
+            return 1;
+        }
+
+        return 0;
+    }
+
+    if (head->data % toDisplay == 0) {
+        cout << head->data << " ";
+        return 1 + displayDivisible(head->next, toDisplay);
+    }
+
+    return displayDivisible(head->next, toDisplay);
+}
